@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:recuerdapp/app/view/my_home_page/weekly_calendar.dart';
 
 class MyHomePage extends StatefulWidget {
   const MyHomePage({super.key, required this.title});
@@ -28,7 +29,7 @@ class _MyHomePageState extends State<MyHomePage> {
       body: Column(
         children: const [
           SizedBox(height: 45,),
-          Calendar()
+          WeeklyCalendar()
         ],
       ),
 
@@ -38,32 +39,6 @@ class _MyHomePageState extends State<MyHomePage> {
         },
         backgroundColor: Colors.deepOrangeAccent,
         child: const Icon(Icons.add),
-      ),
-    );
-  }
-}
-
-
-
-
-
-//WIDGET CALENDAR
-class Calendar extends StatelessWidget {
-  const Calendar({
-    super.key,
-  });
-
-  @override
-  Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 10),
-      child: Container(
-          width: double.infinity,
-          height: 112,
-          decoration: const BoxDecoration(
-            color: Color(0xFF1F222A),
-            borderRadius: BorderRadius.all(Radius.circular(20)),
-          )
       ),
     );
   }
