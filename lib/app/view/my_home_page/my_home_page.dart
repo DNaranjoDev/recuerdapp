@@ -13,6 +13,8 @@ class MyHomePage extends StatefulWidget {
 
 class _MyHomePageState extends State<MyHomePage> {
 
+  int selectedIndex = 0;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -28,17 +30,41 @@ class _MyHomePageState extends State<MyHomePage> {
       ),
       body: Column(
         children: const [
-          SizedBox(height: 45,),
-          WeeklyCalendar()
+          SizedBox(height: 40,),
+          WeeklyCalendar(),
+
         ],
       ),
 
-      floatingActionButton: FloatingActionButton(
-        onPressed: () {
-          // Add your onPressed code here!
+      bottomNavigationBar: BottomNavigationBar(
+        //DECORATION
+        selectedItemColor: const Color(0xFF0FC1E9),
+        unselectedItemColor: Colors.white24,
+
+        //LOGIC
+        currentIndex: selectedIndex,
+        onTap: (value){
+          setState(() {
+            selectedIndex = value;
+          });
         },
-        backgroundColor: Colors.deepOrangeAccent,
-        child: const Icon(Icons.add),
+        elevation: 0,
+        backgroundColor:const Color(0xFF181A20),
+        items: const [
+          BottomNavigationBarItem(
+            icon: Icon(Icons.home_filled),
+            label: 'Home',
+            
+          ),
+          BottomNavigationBarItem(
+              icon: Icon(Icons.add),
+              label: 'Add',
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.calendar_today_rounded),
+            label: 'Calendar',
+          ),
+        ],
       ),
     );
   }
