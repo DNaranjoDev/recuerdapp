@@ -9,7 +9,11 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
 
-    const Color primary =  Color(0xFF181A20);
+    //DARK THEME
+    const Color primary =  Color(0xFF282C34);
+    const Color secondary =  Color(0xFFEE874C);
+    const Color effects1 =  Color(0xFF0FC1E9);
+    const Color effects2 =  Color(0xFF36486C);
     const Color textColor =  Color(0xFFFFFFFF);
     const Color backgroundColor =  Color(0xFF181A20);
 
@@ -17,8 +21,23 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       title: 'RecuerdApp',
       theme: ThemeData(
+        colorScheme: ColorScheme.fromSeed(
+          seedColor: primary,
+          primary: primary,
+          secondary: secondary,
+          tertiary: effects1,
+          background: backgroundColor,
+        ),
 
-        primarySwatch: Colors.blueGrey,
+        textTheme: const TextTheme(
+          bodyMedium: TextStyle(
+            color: textColor,
+          ),
+        ),
+
+        floatingActionButtonTheme: FloatingActionButtonThemeData(
+          backgroundColor: Theme.of(context).colorScheme.secondary,
+        )
       ),
       home: const MyHomePage(title: "RecuerdApp",),
     );

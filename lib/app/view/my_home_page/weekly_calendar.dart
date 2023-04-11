@@ -13,7 +13,7 @@ class WeeklyCalendar extends StatelessWidget {
         elevation: 7,
         color: const Color(0xFF1F222A),
         shape: const RoundedRectangleBorder(
-          borderRadius: BorderRadius.all(Radius.circular(12)),
+          borderRadius: BorderRadius.all(Radius.circular(20)),
         ),
         child: SizedBox(
             width: 407,

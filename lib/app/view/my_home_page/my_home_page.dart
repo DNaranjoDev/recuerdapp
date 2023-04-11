@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:recuerdapp/app/components/typography_h1.dart';
 import 'package:recuerdapp/app/view/my_home_page/weekly_calendar.dart';
 
 class MyHomePage extends StatefulWidget {
@@ -22,49 +23,34 @@ class _MyHomePageState extends State<MyHomePage> {
       appBar: AppBar(
         title: const Text('RecuerdApp'),
         actions: [
-          IconButton(onPressed: () {}, icon: const Icon(Icons.filter_list_alt)),
           IconButton(onPressed: () {}, icon: const Icon(Icons.menu_rounded)),
         ],
         elevation: 0.0,
         backgroundColor: Colors.transparent,
       ),
       body: Column(
-        children: const [
-          SizedBox(height: 40,),
-          WeeklyCalendar(),
-
+        children: [
+          const SizedBox(height: 40,),
+          const WeeklyCalendar(),
+          const SizedBox(height: 40,),
+          Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 23),
+            child: Row(
+              children: const [
+                TypographyH1('Pending'),
+                SizedBox(width: 50,),
+                TypographyH1('Completed', color: Color(0x33FFFFFF),),
+              ],
+            ),
+          ),
         ],
       ),
 
-      bottomNavigationBar: BottomNavigationBar(
-        //DECORATION
-        selectedItemColor: const Color(0xFF0FC1E9),
-        unselectedItemColor: Colors.white24,
 
-        //LOGIC
-        currentIndex: selectedIndex,
-        onTap: (value){
-          setState(() {
-            selectedIndex = value;
-          });
-        },
-        elevation: 0,
-        backgroundColor:const Color(0xFF181A20),
-        items: const [
-          BottomNavigationBarItem(
-            icon: Icon(Icons.home_filled),
-            label: 'Home',
-            
-          ),
-          BottomNavigationBarItem(
-              icon: Icon(Icons.add),
-              label: 'Add',
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.calendar_today_rounded),
-            label: 'Calendar',
-          ),
-        ],
+      floatingActionButton: FloatingActionButton(
+          onPressed: () {},
+        backgroundColor: Theme.of(context).colorScheme.secondary,
+        child: const Icon(Icons.add_rounded),
       ),
     );
   }
