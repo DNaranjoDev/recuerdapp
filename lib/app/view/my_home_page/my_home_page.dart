@@ -3,8 +3,7 @@ import 'package:recuerdapp/app/components/typography_h1.dart';
 import 'package:recuerdapp/app/view/my_home_page/weekly_calendar.dart';
 
 class MyHomePage extends StatefulWidget {
-  const MyHomePage({super.key, required this.title});
-
+  MyHomePage({super.key, required this.title});
 
   final String title;
 

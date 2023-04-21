@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 class TypographyH1 extends StatelessWidget {
   const TypographyH1(
       this.text,
-      {Key? key, this.color}
+      {Key? key, this.color,}
       ) : super(key: key);
 
   final String text;

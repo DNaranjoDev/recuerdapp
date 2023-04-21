@@ -39,7 +39,7 @@ class MyApp extends StatelessWidget {
           backgroundColor: Theme.of(context).colorScheme.secondary,
         )
       ),
-      home: const MyHomePage(title: "RecuerdApp",),
+      home: MyHomePage(title: "RecuerdApp",),
     );
   }
 }

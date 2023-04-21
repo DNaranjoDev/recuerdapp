@@ -1,12 +1,24 @@
 import 'package:flutter/material.dart';
 
 class WeeklyCalendar extends StatelessWidget {
+
   const WeeklyCalendar({
     super.key,
   });
 
   @override
   Widget build(BuildContext context) {
+
+    final DateTime dateTime = DateTime.now();
+    final int l = dateTime.day-dateTime.weekday+1;
+    final int m = dateTime.day-dateTime.weekday+2;
+    final int x = dateTime.day-dateTime.weekday+3;
+    final int j = dateTime.day-dateTime.weekday+4;
+    final int v = dateTime.day-dateTime.weekday+5;
+    final int s = dateTime.day-dateTime.weekday+6;
+    final int d = dateTime.day-dateTime.weekday+7;
+
+
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 10),
       child: Card(
@@ -19,26 +31,71 @@ class WeeklyCalendar extends StatelessWidget {
             width: 407,
             height: 112,
           child: Padding(
-            padding: const EdgeInsets.only(top: 18,),
+            padding: const EdgeInsets.all(25),
             child: Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children:  const [
-                _TypeCalendar('L'),
-                SizedBox(width: 40,),
-                _TypeCalendar('M'),
-                SizedBox(width: 40,),
-                _TypeCalendar('X'),
-                SizedBox(width: 40,),
-                _TypeCalendar('J'),
-                SizedBox(width: 40,),
-                _TypeCalendar('V'),
-                SizedBox(width: 40,),
-                _TypeCalendar('S', color: Color(0xFFEF2D2D),),
-                SizedBox(width: 40,),
-                _TypeCalendar('D', color: Color(0xFFEF2D2D),),
+              crossAxisAlignment: CrossAxisAlignment.center,
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Column(
+                  children: [
+                    const _TypeCalendar('L', fontSize: 15,),
+                    const SizedBox(height: 15,),
+                    _TypeCalendar(l.toString()),
+                  ],
+                ),
+                Column(
+                  children: [
+                    const _TypeCalendar('M', fontSize: 15,),
+                    const SizedBox(height: 15,),
+                    _TypeCalendar(m.toString()),
+                  ],
+                ),
+                Column(
+                  children: [
+                    const _TypeCalendar('X', fontSize: 15,),
+                    const SizedBox(height: 15,),
+                    _TypeCalendar(x.toString()),
+                  ],
+                ),
+                Column(
+                  children: [
+                    const _TypeCalendar('J', fontSize: 15,),
+                    const SizedBox(height: 15,),
+                    _TypeCalendar(j.toString()),
+                  ],
+                ),
+                Column(
+                  children: [
+                    const _TypeCalendar('V', fontSize: 15,),
+                    const SizedBox(height: 15,),
+                    _TypeCalendar(v.toString()),
+                  ],
+                ),
+                Column(
+                  children: [
+                    const _TypeCalendar(
+                        'S',
+                        fontSize: 15,
+                        color: Color(0xFFEF2D2D)
+                    ),
+                    const SizedBox(height: 15,),
+                    _TypeCalendar(s.toString()),
+                  ],
+                ),
+                Column(
+                  children: [
+                    const _TypeCalendar(
+                        'D',
+                        fontSize: 15,
+                        color: Color(0xFFEF2D2D)
+                    ),
+                    const SizedBox(height: 15,),
+                    _TypeCalendar(d.toString()),
+                  ],
+                ),
+
               ],
-            ),
+            )
           ),
         ),
       ),
@@ -51,16 +108,22 @@ class WeeklyCalendar extends StatelessWidget {
 
 //TIPOGRAFIA A USAR EN EL WIDGET DE CALENDARIO SEMANAL
 class _TypeCalendar extends StatelessWidget {
-   const _TypeCalendar(this.text, {this.color = Colors.white});
+   const _TypeCalendar(
+     this.text,{
+     this.color = Colors.white,
+     this.fontSize = 20
+     }
+   );
 
   final String text;
   final Color? color;
+  final double? fontSize;
 
   @override
   Widget build(BuildContext context) {
     return Text(text,
       style: TextStyle(
-        fontSize: 14,
+        fontSize: fontSize,
         fontWeight: FontWeight.w800,
         color: color
       ),
