@@ -13,31 +13,75 @@ class MyHomePage extends StatefulWidget {
 
 class _MyHomePageState extends State<MyHomePage> {
 
+  List<Widget> myTabs = const [
+    Tab(
+      child: Text('Pending'),
+    ),
+    Tab(
+      child: Text('Completed'),
+    )
+  ];
+
   int selectedIndex = 0;
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      backgroundColor: const Color(0xFF181A20),
-      appBar: AppBar(
-        title: const Text(
-          'RecuerdApp',
-          style: TextStyle(
-              fontWeight: FontWeight.bold,
+    return DefaultTabController(
+      length: myTabs.length,
+      child: Scaffold(
+        backgroundColor: const Color(0xFF181A20),
+        appBar: AppBar(
+          title: const Text(
+            'RecuerdApp',
+            style: TextStyle(
+                fontWeight: FontWeight.bold,
+            ),
           ),
+          actions: [
+            IconButton(onPressed: () {}, icon: const Icon(Icons.menu_rounded)),
+          ],
+          elevation: 0.0,
+          backgroundColor: Colors.transparent,
         ),
-        actions: [
-          IconButton(onPressed: () {}, icon: const Icon(Icons.menu_rounded)),
-        ],
-        elevation: 0.0,
-        backgroundColor: Colors.transparent,
+        body: Column(
+          children: [
+            const SizedBox(height: 40,),
+            const WeeklyCalendar(),
+            const SizedBox(height: 50,),
+
+            TabBar(
+              tabs: myTabs,
+              indicatorSize: TabBarIndicatorSize.label,
+            ),
+            Expanded(
+              child: TabBarView(
+                children: [
+                  Container(
+
+                  ),
+
+                  Container(
+
+                  ),
+                ],
+              ),
+            ),
+          ],
+        ),
+
+
+        floatingActionButton: FloatingActionButton(
+          onPressed: () {},
+          backgroundColor: Theme.of(context).colorScheme.secondary,
+          child: const Icon(Icons.add_rounded),
+        ),
       ),
-      body: Column(
-        children: [
-          const SizedBox(height: 40,),
-          const WeeklyCalendar(),
-          const SizedBox(height: 40,),
-          Padding(
+    );
+  }
+}
+
+
+/* Padding(
             padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 23),
             child: Row(
               children: const [
@@ -47,15 +91,5 @@ class _MyHomePageState extends State<MyHomePage> {
               ],
             ),
           ),
-        ],
-      ),
 
-
-      floatingActionButton: FloatingActionButton(
-        onPressed: () {},
-        backgroundColor: Theme.of(context).colorScheme.secondary,
-        child: const Icon(Icons.add_rounded),
-      ),
-    );
-  }
-}
+ */
