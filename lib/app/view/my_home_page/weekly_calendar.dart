@@ -48,6 +48,7 @@ class WeeklyCalendar extends StatelessWidget {
                     const _TypeCalendar('M', fontSize: 15,),
                     const SizedBox(height: 15,),
                     _TypeCalendar(m.toString()),
+
                   ],
                 ),
                 Column(
@@ -69,6 +70,15 @@ class WeeklyCalendar extends StatelessWidget {
                     const _TypeCalendar('V', fontSize: 15,),
                     const SizedBox(height: 15,),
                     _TypeCalendar(v.toString()),
+                    const SizedBox(height: 1,),
+                    Container(
+                      width: 20,
+                      height: 5,
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(20),
+                        color: Theme.of(context).primaryColor,
+                      ),
+                    )
                   ],
                 ),
                 Column(

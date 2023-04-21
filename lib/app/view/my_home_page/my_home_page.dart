@@ -20,7 +20,12 @@ class _MyHomePageState extends State<MyHomePage> {
     return Scaffold(
       backgroundColor: const Color(0xFF181A20),
       appBar: AppBar(
-        title: const Text('RecuerdApp'),
+        title: const Text(
+          'RecuerdApp',
+          style: TextStyle(
+              fontWeight: FontWeight.bold,
+          ),
+        ),
         actions: [
           IconButton(onPressed: () {}, icon: const Icon(Icons.menu_rounded)),
         ],
@@ -47,7 +52,7 @@ class _MyHomePageState extends State<MyHomePage> {
 
 
       floatingActionButton: FloatingActionButton(
-          onPressed: () {},
+        onPressed: () {},
         backgroundColor: Theme.of(context).colorScheme.secondary,
         child: const Icon(Icons.add_rounded),
       ),
